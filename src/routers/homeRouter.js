@@ -11,6 +11,8 @@ const homeRouter = () => {
   // Requests to /newsfeed
   router.use("/newsfeed", homeController.newsfeed);
 
+  router.use("/profile", homeController.profile);
+
   router.use("/", homeController.index);
 
   return router;
