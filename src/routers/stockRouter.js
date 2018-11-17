@@ -6,7 +6,9 @@ var stockController = require("../controllers/stockController");
  */
 const stockRouter = () => {
   // Requests to /index
-  router.use("/", stockController.create);
+  router.get("/", stockController.index);
+
+  router.post("/create", stockController.create)
 
   return router;
 };
