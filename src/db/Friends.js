@@ -7,7 +7,8 @@ module.exports = {
       type: "int",
     },
     list: {
-      type: "json",
+      type: "varchar",
+      length: 255
     }
   }
 };
