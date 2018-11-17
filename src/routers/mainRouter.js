@@ -1,11 +1,17 @@
 var router = require('express').Router();
-var homeRouter = require('./homeRouter');
+var profileRouter = require('./profileRouter');
+var newsRouter = require('./newsRouter');
+var stockRouter = require('./stockRouter');
 /**
  * Top-level router for the app
  */
 const mainRouter = () => {
   // Requests to /*
-  router.use("/", homeRouter());
+  router.use("/profile", profileRouter());
+  router.use("/newsfeed", newsRouter());
+  router.use("/stock", stockRouter());
+
+  router.use("/", profileRouter());
 
   return router;
 };
