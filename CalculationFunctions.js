@@ -1,15 +1,27 @@
 const alpha = require('alphavantage')({ key: process.env.AV_API_KEY });
+var AlphaVantageAPI = require('alpha-vantage-cli').AlphaVantageAPI; ;
+var alphaVantageAPI = new AlphaVantageAPI(process.env.AV_API_KEY, 'compact', true);
 
 //Portfolio value function
-function portfolioValue(/*pass dictionary of stock codes and quantities; daily CSV */)
+function portfolioValue(/*userID.PortfolioID from database*/)
 {
+    var value = 0;
+    //for loop to be edited when database is incorporated
     for(stock in portfolio)
     {
-       // value += stock[closing price from close in CSV] * stock[qty];
+        alphaVantageAPI.getDailyData(stock)
+        .then(dailyData => 
+        {
+            value += dailyData[0].Close * Qty; 
+        })
+        .catch(err => {
+        console.error(err);
+        });
     }
     return value;
 }
 
+portfolioValue();
 //Plot pie chart for industry break down
 function dispPortfolioPie(/*user data from database */)
 {
@@ -23,7 +35,68 @@ function updateGraph(portfolioValue)
 }
 
 //Display graph of individual stock
-function dispStockMetric(/*String stockCode, CSV file */)
-{
+function dispStockMetric(Stock)
+{   
+    var date = [];
+    var open = [];
+    var high = [];
+    var low = [];
+    var close = [];
+    var adjClose = [];
+    var volume = [];
+
+    alphaVantageAPI.getDailyData(stock)
+    .then(dailyData => 
+    {
+        for(var i = 0; i < 30; i++)
+        {
+            date.push(dailyData[0].Timestamp);
+            open.push(dailyData[0].Open);
+            high.push(dailyData[0].High);
+            low.push(dailyData[0].Low);
+            close.push(dailyData[0].Close);
+            adjClose.append(dailyData[0].AdjClose);
+        }
+    })
+    .catch(err => {
+    console.error(err);
+    });
+   
+    var openData = {
+        x: date,
+        y: open,
+        mode: 'lines+markers'
+    };
+    var highData = {
+        x: date,
+        y: high,
+        mode: 'lines+markers'
+      };
+      
+      var lowData = {
+        x: date,
+        y: low,
+        mode: 'lines+markers'
+      };
+
+      var closeData = {
+        x: date,
+        y: close,
+        mode: 'lines+markers'
+      };
+
+      var adjCloseData = {
+        x: date,
+        y: adjClose,
+        mode: 'lines+markers'
+      };
+      
+      var data = [ openData, highData, lowData, closeData, adjCloseData ];
+      
+      var layout = {
+        title: 'Line and Scatter Plot'
+      };
+      
+      Plotly.newPlot('myDiv', data, layout);
 
 }
