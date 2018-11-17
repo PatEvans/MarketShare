@@ -2,7 +2,7 @@ const alpha = require('alphavantage')({ key: process.env.AV_API_KEY });
 var AlphaVantageAPI = require('alpha-vantage-cli').AlphaVantageAPI; ;
 var alphaVantageAPI = new AlphaVantageAPI(process.env.AV_API_KEY, 'compact', true);
 
-
+///
 //Function to calculate total invested
 function initialInvestment(/*PortfolioID from database*/)
 {
