@@ -129,16 +129,30 @@
               Create new Stock</div>
             <div class="card-body">
               <form action="/stock/create" method = "post">
-                First name:<br>
-                <input type="text" name="firstname" value="Mickey"><br>
-                Last name:<br>
-                <input type="text" name="lastname" value="Mouse"><br><br>
+                Stock Code:<br>
+                <input type="number" name="stockCode" value="01820"><br>
+                Quantity:<br>
+                <input type="number" name="quantity"><br>
+                Date of purchase:
+                <input type="date" name="datePurchase">
+                Industry:
+                <select name="industry">
+                  <option value="financial">Financial</option>
+                  <option value="utilities">Utilities</option>
+                  <option value="costumerDiscretionary">Consumer Discretionary</option>
+                  <option value="consumerStaples">Consumer Staples</option>
+                  <option value="energy">Energy</option>
+                  <option value="healthcare">Healthcare</option>
+                  <option value="industrials">Industrials</option>
+                  <option value="technology">Technology</option>
+                  <option value="telecom">Telecom</option>
+                  <option value="materials">Materials</option>
+                  <option value="realEstate">Real Estate</option>
+                </select>
+                <br><br>
                 <input type="submit" value="Submit">
                 <input type="reset">
               </form>
-            </div>
-            <div class="card-footer small text-muted">
-              Yesterday at 11:59 PM
             </div>
 
           </div>
