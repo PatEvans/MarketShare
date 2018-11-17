@@ -1,3 +1,5 @@
+const alpha = require('alphavantage')({ key: process.env.AV_API_KEY });
+
 //Portfolio value function
 function portfolioValue(/*pass dictionary of stock codes and quantities; daily CSV */)
 {
