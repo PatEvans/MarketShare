@@ -8,4 +8,20 @@ function portfolioValue(/*pass dictionary of stock codes and quantities; daily C
     return value;
 }
 
-function
+//Plot pie chart for industry break down
+function dispPortfolioPie(/*user data from database */)
+{
+
+}
+
+//Update porfolio value scatter plot by adding new plot
+function updateGraph(portfolioValue)
+{
+
+}
+
+//Display graph of individual stock
+function dispStockMetric(/*String stockCode, CSV file */)
+{
+
+}
