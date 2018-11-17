@@ -13,6 +13,8 @@ const homeRouter = () => {
 
   router.use("/profile", homeController.profile);
 
+  router.use("/pv", homeController.pv);
+
   router.use("/", homeController.index);
 
   return router;

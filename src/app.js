@@ -2,12 +2,15 @@ var express = require('express');
 var dotenv = require('dotenv');
 var path = require('path');
 var morgan = require('morgan');
-var mainRouter = require('./routers/mainRouter')
+var mainRouter = require('./routers/mainRouter');
+var dbConn = require('typeorm');
+var EntitySchema = dbConn.EntitySchema;
+
 
 // Load environment variables from .env file
 dotenv.config({ path: ".env" });
 
-const buildApp = () => {
+const build = (callback) => {
   const app = expressSetup();
 
   middlewareSetup(app);
@@ -15,13 +18,29 @@ const buildApp = () => {
   // Routes set up
   app.use("/", mainRouter());
 
-  app.listen(app.get("port"), () => {
-    console.log(
-      "  App is running at http://localhost:%d in %s mode",
-      app.get("port"),
-      app.get("env")
-    );
-    console.log("  Press CTRL-C to stop\n");
+  // Connecting to database
+  dbConn.createConnection({
+    name: "marketshare",
+    type: "mysql",
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    username: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+    synchronize: true,
+    entities: [
+      new EntitySchema(require("./db/Friends")),
+      new EntitySchema(require("./db/Order")),
+      new EntitySchema(require("./db/Portfolio")),
+      new EntitySchema(require("./db/User"))
+    ]
+  }).then(connection => {
+    console.log("  Connection to database (" + connection.name + ") established.");
+    return callback(app);
+  }).catch(err => {
+    console.error("  Could not connect to database");
+    console.error(err);
+    return callback(app, err);
   });
 };
 
@@ -68,4 +87,4 @@ const middlewareSetup = (app) => {
   });
 };
 
-buildApp();
+module.exports = { build };
