@@ -112,34 +112,42 @@
 
       <div id="content-wrapper">
 
-        <div class="container-fluid">
+        <div class="container-fluid"style="margin-left:6%;margin-right:6%;">
 
           <!-- Breadcrumbs-->
-          <ol class="breadcrumb">
+          <ol class="breadcrumb"style="position:relative;left:-6%;">
             <li class="breadcrumb-item">
               <a href="#">Profile</a>
             </li>
             <li class="breadcrumb-item active">Overview</li>
           </ol>
-
+		  <div class="profileHeader">
+		    
+			<img class="profileImage" src="img/profile.png"></img>
+		      <div class="profileTitle">
+			  Mr MoneyBags
+			</div>
+		  </div>
+<div class="row"style="">
           <!-- Icon Cards-->
-		  <div class="card mb-3 profilePane">
+		  
+		  <div class="card mb-3 col-xl-3 col-sm-10 profilePane">
             <div class="card-header">
-              <div class="proftext">Mr Moneybags</div></div>
+              <div class="proftext">About Me</div></div>
            
-            <div class="col-xl-12 col-sm-12 mb-3">
-              <div class="card-body">
+            <div class="col-xl-12 col-sm-12 mb-3 ">
+              <div class="card-body profileAbout">
 				        <div class=image-box>
-                  <img class="sidebar_image" src="/img/profile.png" alt="profile">
+                  <i class="fas fa-fw fa-life-ring"></i>
 					    </div>
 				  
                   
-				  <div class="profileInfo">Date of Birth: </div>
-				  <div class="profileInfo">Employment: </div>
-				  <div class="profileInfo">Went to: </div>
-				  <div class="profileInfo">Lives in: </div>
-				  
-				  
+				  <div class="profileInfo">Date of Birth: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 28/09/98</div>
+				  <div class="profileInfo">Employment:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;McDonalds</div>
+				  <div class="profileInfo">Went to:   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Higher School</div>
+				  <div class="profileInfo">Lives in:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Manchester Uni</div>
+				   <div class="profileInfo">Likes:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rock Music</div>
+				  <div class="profileInfo">Hates:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rap Music</div>
                 </div>
                 
               
@@ -148,18 +156,19 @@
           </div>
            
           </div>
-          
-
-          <!-- Area Chart Example-->
-          <div class="card mb-3">
+		  <!-- Area Chart Example-->
+          <div class="card mb-3 col-xl-7 col-sm-10 profilePane ">
             <div class="card-header">
               <i class="fas fa-chart-area"></i>
               Area Chart Example</div>
-            <div class="card-body">
+            <div class="card-body graphPad">
               <canvas id="myAreaChart" width="100%" height="30"></canvas>
             </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+           
           </div>
+          </div>
+
+          
 
           <!-- DataTables Example -->
           <div class="card mb-3">
