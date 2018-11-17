@@ -1,0 +1,13 @@
+#Environment variables
+.env
+
+#Compiled code
+dist
+
+#External libraries
+node_modules
+
+#Tests coverage reports
+coverage
+
+.DS_STORE
