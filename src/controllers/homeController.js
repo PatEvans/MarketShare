@@ -1,3 +1,7 @@
-exports.hello = function(req, res) {
-  res.send('hello world!');
+exports.index = function(req, res) {
+  res.render("pages/index");
 };
+
+exports.newsfeed = function(req, res) {
+  res.render("pages/newsfeed");
+}
