@@ -13,4 +13,10 @@ var myPieChart = new Chart(ctx, {
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
     }],
   },
+  options: {
+    
+    legend: {
+      display: false
+    }
+  }
 });

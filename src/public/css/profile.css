@@ -66,4 +66,8 @@
 	width:85px;
   border-radius: 50%;
 }
-
+.profilePie{
+	margin-top:-10px;
+	margin-left:15px;
+	width:90%;
+}
