@@ -375,3 +375,40 @@ body.sidebar-toggled footer.sticky-footer {
     width: calc(100% - 90px);
   }
 }
+
+.sidebar_image{
+  width:45px;
+  height:45px;
+  margin-right:10px;
+  margin-bottom:10px;
+  margin-top:10px;
+  border-radius: 50%;
+}
+
+.sidebar_icon{
+  width:25px;
+  margin-left: 0px;
+  margin-right:0px;
+  margin-bottom:0px;
+  margin-top:0px;
+}
+
+.friends_name{
+  padding: 10px;
+  color: royalblue;
+  font-size: 15px;
+  padding-top: 10px;
+  text-align:right;
+}
+
+.notificationInfo{
+  position:relative;
+  font-size: 18px;
+  margin-bottom:10px;
+  top:-95px;
+  left: 105px;
+}
+
+.padwidth{
+    height: 200px;
+}

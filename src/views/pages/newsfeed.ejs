@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <% include ../partials/head.ejs %>
-  
+
     <title>Marketshare</title>
 
     <!-- Custom styles for this template-->
@@ -100,7 +100,7 @@
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="/newfeed">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <img class="sidebar_icon" src = "/img/newsfeed.png"></i>
             <span>Newsfeed</span></a>
         </li>
         <li class="nav-item">
@@ -124,39 +124,60 @@
 
           <!-- Area Chart Example-->
           <div class="card mb-3">
-            <div class="card-header">
-              <img src = "/img/sara.jpeg" style = "width:20px;height:20px;"></i>
+            <div class="friends_name">Sara Caballero-Bruno  </div>
+
+            <div class="card-header" style="background-color: lightgray;">
+                <img class="sidebar_image" src = "/img/sara.jpeg"></img>
               Profit chart</div>
             <div class="card-body">
-              <canvas id="myAreaChart" ></canvas>
+                <canvas id="myAreaChart" width="100%" height="30"></canvas>
             </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+            <div class="card-footer small text-muted">
+              Yesterday at 11:59 PM
+            </div>
+            
           </div>
 
-          <div class="row">
-            <div class="col-lg-8">
-              <div class="card mb-3">
-                <div class="card-header">
-                  <i class="fas fa-chart-bar"></i>
-                  Bar Chart Example</div>
-                <div class="card-body">
-                  <canvas id="myBarChart" width="100%" height="50"></canvas>
-                </div>
-                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-              </div>
+          <div class="card mb-3">
+            <div class="friends_name">Nice guy </div>
+
+            <div class="card-header" style="background-color: palegreen;">
+                <img class="sidebar_image" src = "/img/profile.jpg"></img>
+              Recent benefit!</div>
+            <div class="card-body">
+                25
             </div>
-            <div class="col-lg-4">
-              <div class="card mb-3">
-                <div class="card-header">
-                  <i class="fas fa-chart-pie"></i>
-                  Pie Chart Example</div>
-                <div class="card-body">
-                  <canvas id="myPieChart" width="100%" height="100"></canvas>
-                </div>
-                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-              </div>
+            <div class="card-footer small text-muted">
+              Yesterday at 11:59 PM
             </div>
           </div>
+
+          <div class="card mb-3">
+            <div class="friends_name">Nice guy </div>
+
+            <div class="card-header" style="background-color: lightpink;">
+                <img class="sidebar_image" src = "/img/profile.jpg"></img>
+              Recent lost</div>
+            <div class="card-body">
+                -25
+            </div>
+            <div class="card-footer small text-muted">
+              Yesterday at 11:59 PM
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="card mb-3">
+              <div class="card-header">
+                <i class="fas fa-chart-pie"></i>
+                Pie Chart Example</div>
+              <div class="card-body">
+                <canvas id="myPieChart" width="100%" height="100"></canvas>
+              </div>
+              <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+            </div>
+          </div>
+        </div>
 
           <p class="small text-center text-muted my-5">
             <em>More chart examples coming soon...</em>
