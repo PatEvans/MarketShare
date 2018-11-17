@@ -1,0 +1,30 @@
+.image-box{
+  top:-75px;
+  left:-10px;
+  position:relative;
+  height:100px;
+}
+.sidebar_image{
+  width:85px;
+  margin-right:10px;
+  margin-bottom:10px;
+  margin-top:10px;
+  border-radius: 50%;
+}
+.proftext{
+  position:relative;
+  font-size: 25px;
+  font-weight: bold;
+  top:5px;
+  left: 115px;
+}
+.profileInfo{
+  position:relative;
+  font-size: 18px;
+  margin-bottom:10px;
+  top:-95px;
+  left: 105px;
+}
+.profilePane{
+  height:255px;
+}

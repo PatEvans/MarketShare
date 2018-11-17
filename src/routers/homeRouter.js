@@ -4,12 +4,19 @@ var homeController = require("../controllers/homeController");
 /**
  * Home router
  */
-const mainRouter = () => {
-  // Requests to /*
-  router.use("/", homeController.hello);
+const homeRouter = () => {
+  // Requests to /index
+  router.use("/index", homeController.index);
+
+  // Requests to /newsfeed
+  router.use("/newsfeed", homeController.newsfeed);
+
+  router.use("/profile", homeController.profile);
+
+  router.use("/", homeController.index);
 
   return router;
 };
 
-module.exports = mainRouter;
+module.exports = homeRouter;
 
