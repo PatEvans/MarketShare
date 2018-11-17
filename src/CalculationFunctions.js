@@ -3,7 +3,7 @@ var AlphaVantageAPI = require('alpha-vantage-cli').AlphaVantageAPI; ;
 var alphaVantageAPI = new AlphaVantageAPI(process.env.AV_API_KEY, 'compact', true);
 
 //Function to calculate total invested
-function initialInvestment(/*PortfolioID from database*/)
+const initialInvestment = (/*PortfolioID from database*/) =>
 {
     var investment = 0;
     var i;
@@ -19,10 +19,10 @@ function initialInvestment(/*PortfolioID from database*/)
 
     return investment;
 
-}
+};
 
 //Portfolio value function
-function portfolioValue(/*userID.PortfolioID from database*/)
+const portfolioValue = (/*userID.PortfolioID from database*/) =>
 {
     var value = 0;
     //for loop to be edited when database is incorporated
@@ -38,31 +38,31 @@ function portfolioValue(/*userID.PortfolioID from database*/)
         });
     }
     return value;
-}
+};
 
 //Function for calculating the profit that could be earned on a given date
-function profit(/*userID.PortfolioID from database*/)
+const profit = (/*userID.PortfolioID from database*/) =>
 {
     value = portfolioValue();
     investment = initialInvestment();
 
     return (value - investment) / investment *100;
-}
+};
 
 //Plot pie chart for industry break down
-function dispPortfolioPie(/*user data from database */)
+const dispPortfolioPie = (/*user data from database */) =>
 {
 
-}
+};
 
 //Update porfolio value scatter plot by adding new plot
-function updateGraph(portfolioValue)
+const updateGraph = (portfolioValue) =>
 {
 
-}
+};
 
 //Display graph of individual stock
-function dispStockMetric(Stock)
+const dispStockMetric = (Stock) =>
 {   
     var date = [];
     var open = [];
@@ -126,4 +126,6 @@ function dispStockMetric(Stock)
       
       Plotly.newPlot('myDiv', data, layout);
 
-}
+};
+
+module.exports = { initialInvestment, portfolioValue, profit, dispPortfolioPie, updateGraph, dispStockMetric };
