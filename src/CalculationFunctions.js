@@ -49,6 +49,56 @@ const profit = (/*userID.PortfolioID from database*/) =>
     return (value - investment) / investment *100;
 };
 
+//Function for calculating best performing stock compared to previous month
+const hotStock = (/*userID.PortfolioID from database*/) =>
+{
+    var max = (alphaVantageAPI.getMonthlyData(stock))[0].Close - (alphaVantageAPI.getMonthlyData(stock))[1].Close / (alphaVantageAPI.getMonthlyData(stock))[1].Close * 100;
+    var value;
+    for(stock in portfolio)
+    {
+        alphaVantageAPI.getMonthlyData(stock)
+        .then(monthlyData => 
+        {
+            value = (monthlyData[0].Close - monthlyData[1].Close) /monthlyData[1].Close * 100;
+            if(value > max)
+            {
+                max = value;
+                hotStock = stock;
+            }
+        })
+        .catch(err => {
+        console.error(err);
+        });
+    }
+
+    return hotStock;
+};
+
+//Function for calculating worst performing stock compared to previous month
+const coldStock = (/*userID.PortfolioID from database*/) =>
+{
+    var min = (alphaVantageAPI.getMonthlyData(stock))[0].Close - (alphaVantageAPI.getMonthlyData(stock))[1].Close / (alphaVantageAPI.getMonthlyData(stock))[1].Close * 100;
+    var value;
+    for(stock in portfolio)
+    {
+        alphaVantageAPI.getMonthlyData(stock)
+        .then(monthlyData => 
+        {
+            value = (monthlyData[0].Close - monthlyData[1].Close) /monthlyData[1].Close * 100;
+            if(value < min)
+            {
+                min = value;
+                coldStock = stock;
+            }
+        })
+        .catch(err => {
+        console.error(err);
+        });
+    }
+
+    return coldStock;
+};
+
 //Plot pie chart for industry break down
 const dispPortfolioPie = (/*user data from database */) =>
 {
