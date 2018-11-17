@@ -1,0 +1,33 @@
+{
+  "name": "durhack18-stockmarket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "engines": {
+    "node": ">=9.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^6.1.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "node": "^11.1.0",
+    "nodemon": "^1.18.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node src/app.js",
+    "start:watch": "./node_modules/nodemon/bin/nodemon.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seanjparker/durhack18-stockmarket.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seanjparker/durhack18-stockmarket/issues"
+  },
+  "homepage": "https://github.com/seanjparker/durhack18-stockmarket#readme"
+}
