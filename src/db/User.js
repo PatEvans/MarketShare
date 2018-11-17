@@ -22,7 +22,6 @@ module.exports = {
       portfolios: {
         target: "portfolio",
         type: "one-to-one",
-        joinTable: true,
         cascade: true
       }
   }

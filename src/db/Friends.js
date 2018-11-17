@@ -3,7 +3,6 @@ module.exports = {
   columns: {
     userid: {
       primary: true,
-      generated: true,
       type: "int",
     },
     list: {

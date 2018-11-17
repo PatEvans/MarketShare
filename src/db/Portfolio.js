@@ -15,8 +15,8 @@ module.exports = {
     orders: {
       target: "orders",
       type: "many-to-many",
-      joinTable: true,
-      cascade: true
+      cascade: true,
+      joinTable: true
     }
   }
 };
