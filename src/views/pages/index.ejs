@@ -226,9 +226,11 @@
                       <th>Quantity</th>
                       <th>Date of Purchase</th>
                       <th>Industry</th>
+                      <th>Price of stock</th>
+
                     </tr>
                   </thead>
-                  
+
 
                   <tbody>
                   <% stocks.forEach(item => { %>
@@ -237,6 +239,8 @@
                       <td><%- item.qty %></td>
                       <td><%- item.timeBought %></td>
                       <td><%- item.industry %></td>
+                      <td><%- item.priceBought %></td>
+
                     </tr>
                   <% }) %>
 
