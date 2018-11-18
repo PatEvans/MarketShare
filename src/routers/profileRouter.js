@@ -6,7 +6,11 @@ var profileController = require("../controllers/profileController");
  */
 const profileRouter = () => {
   // Requests to /index
-  router.use("/editInfo", profileController.editInfo);
+  router.get("/editInfo", profileController.editInfo);
+
+  router.post("/login", profileController.login);
+
+  router.post("/createAccount", profileController.createAccount);
 
   router.use("/", profileController.index);
 
