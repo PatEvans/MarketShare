@@ -7,14 +7,16 @@ var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'pie',
   data: {
-    labels: ["Blue", "Red", "Yellow", "Green"],
+    labels: ["Utilities", "Consumer Disretionary", "costumer Staples", "Energy", "Healthcare", "Industrial", "Technology",
+            "Telecom", "Materials", "Real Estate", "Other"];
     datasets: [{
       data: [12.21, 15.58, 11.25, 8.32],
-      backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+      backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745', '#00ffff', '#ffff00', '#990000',
+                        '#40caee', '#0000ff', '#20b2aa', '#ff7f50'],
     }],
   },
   options: {
-    
+
     legend: {
       display: false
     }
