@@ -20,9 +20,9 @@ const createUser = async (username, password) => {
 
 const login = async (username, password) => {
   const user = await dbConn.getConnection().getRepository('user')
-  .find({ where: {id: userID } });
+  .find({ where: {name: username, password: password } });
 
-  return user;
+  return user[0].id;
 };
 
 module.exports = { createUser, login };

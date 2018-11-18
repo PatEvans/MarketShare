@@ -11,9 +11,11 @@ exports.editInfo = function(req, res) {
 exports.login = async function(req, res) {
   if(!req.cookies.id) {
     const loggedin = await userHelp.login(req.body.username, req.body.password);
+    res.cookie('id', loggedin);
     res.send(loggedin?"Logged in!":"Something went wrong");
+  } else {
+    res.send("Already logged in!");
   }
-  res.send("Already logged in!");
 };
 
 exports.createAccount = async function(req, res) {
