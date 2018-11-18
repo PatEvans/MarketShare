@@ -5,7 +5,10 @@ exports.index = function(req, res) {
 };
 
 exports.create = async function(req, res) {
-  await stockHelp.createOrder(req.body);
-  res.send("Added");
+  const done = await stockHelp.createOrder(req.cookies.id, req.body);
+  if (done)
+    res.redirect("/");
+  else
+    res.send("failed");
 };
 
