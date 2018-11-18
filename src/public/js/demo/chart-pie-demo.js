@@ -13,10 +13,10 @@ var myPieChart = new Chart(ctx, {
   type: 'pie',
   data: {
     labels: ["Utilities", "Consumer Disretionary", "costumer Staples", "Energy", "Healthcare", "Industrial", "Technology",
-            "Telecom", "Materials", "Real Estate", "Other"];
+            "Telecom", "Materials", "Real Estate", "Other"],
     datasets: [{
       data: [data.utilities, data.consumerDiscretionary,data.consumerStaples, data.energy, data.healthcare, data.industrial,
-            data.telecom, data.materials, data.realEstate, data.other];
+            data.telecom, data.materials, data.realEstate, data.other],
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745', '#00ffff', '#ffff00', '#990000',
                         '#40caee', '#0000ff', '#20b2aa', '#ff7f50'],
     }],
