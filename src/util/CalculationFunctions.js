@@ -60,6 +60,17 @@ const portfolioValueChanges = (/*userID.PortfolioID from database*/) =>
       return portfolioValues;
 };
 
+const getPrice = (stockCode) =>
+{
+    alphaVantageAPI.getDailyData(stockCode)
+        .then(dailyData => 
+        {
+            return dailyData[0].Close; 
+        })
+        .catch(err => {
+        console.error(err);
+        });
+}
 //Function for calculating the profit that could be earned on a given date
 const profit = (/*userID.PortfolioID from database*/) =>
 {
