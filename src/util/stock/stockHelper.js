@@ -2,6 +2,22 @@ var dbConn = require('typeorm');
 var stockHelp = require('../CalculationFunctions');
 var userHelp = require('../../util/user/userHelper');
 
+const getPortfolioIndustry = async (userID) => {
+  var data = await getPortfolioOrders(req.cookies.id);
+
+  var toSend = {};
+  
+  for (const ele of data) {
+    if (ele.industry in toSend) {
+      toSend[ele.industry]++;
+    } else {
+      toSend[ele.industry] = 1;
+    }
+  }
+
+  return toSend;
+}
+
 const getPortfolioOrders = async (userID) => {
   const user = await dbConn.getConnection()
     .getRepository('user')
@@ -70,4 +86,4 @@ const createOrder = async (userid, orderData) => {
     return true;
 };
 
-module.exports = { getPortfolioOrders, createOrder };
+module.exports = { getPortfolioIndustry, getPortfolioOrders, createOrder };

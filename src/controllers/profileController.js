@@ -2,12 +2,13 @@ var userHelp = require('../util/user/userHelper');
 var stockHelp = require('../util/stock/stockHelper');
 
 exports.index = async function(req, res) {
-  if(!req.cookies.id) {
+  if(req.cookies.id !== undefined) {
     res.render("pages/login");
   } else {
     const _user = await userHelp.getUser(req.cookies.id);
     const _stocks = await stockHelp.getPortfolioOrders(req.cookies.id);
-    res.render("pages/index", {user: _user[0], stocks: _stocks});
+    const _industry = await stockHelp.getPortfolioIndustry(req.cookies.id);
+    res.render("pages/index", {user: _user[0], stocks: _stocks, industry: _industry });
   }
 };
 

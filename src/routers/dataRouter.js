@@ -7,7 +7,7 @@ var dataController = require("../controllers/dataController");
 const dataRouter = () => {
   // /data/getPortfolioStocks
   router.get("/getPortfolioStocks", dataController.getPortfolioStocks);
-
+  router.get("/getPortfolioIndustry", dataController.getPortfolioIndustry);
   return router;
 };
 
