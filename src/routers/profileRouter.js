@@ -10,6 +10,8 @@ const profileRouter = () => {
 
   router.post("/login", profileController.login);
 
+  router.get("/logout", profileController.logout);
+
   router.get("/", profileController.index);
 
   return router;

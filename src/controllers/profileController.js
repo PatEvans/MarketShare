@@ -5,7 +5,7 @@ exports.index = async function(req, res) {
     res.render("pages/login");
   } else {
     const _user = await userHelp.getUser(req.cookies.id);
-    res.render("pages/index", {user: _user});
+    res.render("pages/index", {user: _user[0]});
   }
 };
 
@@ -17,17 +17,13 @@ exports.login = async function(req, res) {
   if(!req.cookies.id) {
     const loggedin = await userHelp.login(req.body.username, req.body.password);
     res.cookie('id', loggedin);
-    res.send(loggedin?"Logged in!":"Something went wrong");
-  } else {
-    res.send("Already logged in!");
   }
+  res.redirect("/profile");
 };
 
-exports.createAccount = async function(req, res) {
-  const id = await userHelp.createUser(req.body.username, req.body.password);
-  res.cookie('id', id);
-
-  res.send(id?"Created account!":"Something went wrong");
+exports.logout = function(req, res) {
+  res.clearCookie("id");
+  res.redirect("/profile")
 };
 
 exports.register = function(req, res) {

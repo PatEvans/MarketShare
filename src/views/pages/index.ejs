@@ -151,15 +151,12 @@
 
 
 				  <div class="profileInfo">Date of Birth:  <div class="valueText"> <%- user.dob %></div></div>
-				  <div class="profileInfo">Employment:  <div class="valueText"> <%- user.employment %></div></div>
+				  <div class="profileInfo">Employment:  <div class="valueText"> <%- user.employer %></div></div>
 				  <div class="profileInfo">Went to:   <div class="valueText"> <%- user.education %></div></div>
 				  <div class="profileInfo">Lives in:  <div class="valueText"> <%- user.city %></div></div>
-				   <div class="profileInfo">Likes:  <div class="valueText"> <%- user.likes %></div></div>
+				   <div class="profileInfo">Likes:  <div class="valueText"> <%- user.likesDislikes %></div></div>
 				  
                 </div>
-
-
-
 
           </div>
 
@@ -743,7 +740,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <a class="btn btn-primary" href="/profile/logout">Logout</a>
           </div>
         </div>
       </div>
