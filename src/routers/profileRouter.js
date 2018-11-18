@@ -10,8 +10,6 @@ const profileRouter = () => {
 
   router.post("/login", profileController.login);
 
-  router.post("/createAccount", profileController.createAccount);
-
   router.get("/", profileController.index);
 
   return router;

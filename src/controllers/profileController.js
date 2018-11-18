@@ -29,3 +29,7 @@ exports.createAccount = async function(req, res) {
 
   res.send(id?"Created account!":"Something went wrong");
 };
+
+exports.register = function(req, res) {
+  res.render("pages/register");
+}
