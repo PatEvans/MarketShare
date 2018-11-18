@@ -1,4 +1,5 @@
 var express = require('express');
+var cookieParser = require('cookie-parser');
 var dotenv = require('dotenv');
 var path = require('path');
 var morgan = require('morgan');
@@ -20,7 +21,6 @@ const build = (callback) => {
 
   // Connecting to database
   dbConn.createConnection({
-    name: "marketshare",
     type: "mysql",
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
@@ -67,11 +67,13 @@ const expressSetup = () => {
  * @param app The app to set up the middleware for
  */
 const middlewareSetup = (app) => {
+  
   app.use(
     express.static(path.join(__dirname, "public"),
-      { maxAge: 31557600000 })
-  );
-
+    { maxAge: 31557600000 })
+    );
+    
+  app.use(cookieParser())
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
