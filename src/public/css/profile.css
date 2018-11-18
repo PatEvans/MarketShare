@@ -24,6 +24,7 @@
   margin-bottom:5px;
   top:-105px;
   left: -10px;
+  height:24px;
 }
 .profilePane{
   height:260px;
@@ -70,4 +71,7 @@
 	margin-top:-10px;
 	margin-left:15px;
 	width:220px;
+}
+.valueText{
+	position:relative;top:-24px;display:block; text-align:right;
 }
