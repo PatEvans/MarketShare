@@ -14,6 +14,24 @@ module.exports = {
       type: "varchar",
       length: 255
     },
+    dob: {
+      type: "date"
+    },
+    employer: {
+      type: "varchar",
+      length: 255
+    },
+    education: {
+      type: "varchar",
+      length: 255
+    },
+    city: {
+      type: "varchar",
+      length: 255
+    },
+    likesDislikes: {
+      type: "text"
+    },
     portfolioid: {
       type: "int"
     }
