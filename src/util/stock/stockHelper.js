@@ -3,21 +3,36 @@ var stockHelp = require('../CalculationFunctions');
 var userHelp = require('../../util/user/userHelper');
 
 const getPortfolioOrders = async (userID) => {
+  const user = await dbConn.getConnection()
+    .getRepository('user')
+    .find({ where: {id: userID } });
+  const portfolio_id = user[0].portfolioid;
+
   const portfolio = await dbConn.getConnection()
     .getRepository('portfolio')
-    .find({ where: {id: userID } });
+    .find({ where: { portfolioid: portfolio_id } });
 
-  const stocks = await dbConn.getConnection()
-  .getRepository('Order')
-  .find({
-    relations: ["orders"],
-    where: {
-      portfolioid: portfolio.portfolioid
+  var userStocks = [];
+
+    for (const ele of portfolio) {
+      const user_stock = (await dbConn.getConnection()
+      .getRepository('orders')
+      .find({
+        where: {orderid: ele.id}
+      }))[0];
+
+      // console.log(user_stock);
+      var formatted = {};
+      formatted["qty"] = user_stock.qty;
+      formatted["stockcode"] = user_stock.stockcode;
+      formatted["industry"] = user_stock.industry;
+      formatted["timeBrought"] = user_stock.timeBought;
+      formatted["priceBought"] = user_stock.priceBought;
+  
+      userStocks.push(formatted);
     }
-  });
-  console.log(stocks);
 
-  return undefined;
+  return userStocks;
 };
 
 const createOrder = async (userid, orderData) => {
