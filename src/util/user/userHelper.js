@@ -32,4 +32,15 @@ const getUser = async (uid) => {
   return user;
 };
 
-module.exports = { createUser, login, getUser };
+const updateInfo = async (userid, valueType, value) => {
+  var data = {};
+  data[valueType] = value;
+  await dbConn.getConnection()
+    .createQueryBuilder()
+    .update('user')
+    .set(data)
+    .where("id = :id1", { id1: Number(userid) })
+    .execute();
+};
+
+module.exports = { updateInfo, createUser, login, getUser };
