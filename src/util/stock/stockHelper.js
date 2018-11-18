@@ -3,7 +3,7 @@ var stockHelp = require('../CalculationFunctions');
 var userHelp = require('../../util/user/userHelper');
 
 const getPortfolioIndustry = async (userID) => {
-  var data = await getPortfolioOrders(req.cookies.id);
+  var data = await getPortfolioOrders(userID);
 
   var toSend = {};
   
