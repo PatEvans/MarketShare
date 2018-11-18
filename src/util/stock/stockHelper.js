@@ -27,14 +27,13 @@ const getPortfolioOrders = async (userID) => {
   const portfolio = await dbConn.getConnection()
     .getRepository('portfolio')
     .find({ where: { portfolioid: portfolio_id } });
-
   var userStocks = [];
 
     for (const ele of portfolio) {
       const user_stock = (await dbConn.getConnection()
       .getRepository('orders')
       .find({
-        where: {orderid: ele.id}
+        where: {orderid: ele.orderid}
       }))[0];
 
       // console.log(user_stock);
