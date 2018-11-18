@@ -26,7 +26,7 @@ const getPortfolioOrders = async (userID) => {
       formatted["qty"] = user_stock.qty;
       formatted["stockcode"] = user_stock.stockcode;
       formatted["industry"] = user_stock.industry;
-      formatted["timeBrought"] = user_stock.timeBought;
+      formatted["timeBought"] = user_stock.timeBought;
       formatted["priceBought"] = user_stock.priceBought;
   
       userStocks.push(formatted);
