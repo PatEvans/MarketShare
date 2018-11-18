@@ -13,7 +13,7 @@ exports.getAllIndustry = async function(req, res) {
     var nextUser = await getPortfolioIndustryByID(ele.id);
     userData.push(nextUser);
   }
-  
+
   return userData;
 };
 
@@ -34,7 +34,7 @@ getPortfolioIndustryByID = async function(userID) {
     "realEstate": 0,
     "other": 0
   };
-  
+
   for (const ele of data) {
     if (ele.industry in toSend) {
       toSend[ele.industry]++;
@@ -69,7 +69,7 @@ exports.getPortfolioIndustry = async function(req, res) {
     "realEstate": 0,
     "other": 0
   };
-  
+
   for (const ele of data) {
     if (ele.industry in toSend) {
       toSend[ele.industry]++;
@@ -80,4 +80,3 @@ exports.getPortfolioIndustry = async function(req, res) {
 
   res.send({data: toSend});
 };
-

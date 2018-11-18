@@ -6,10 +6,10 @@ Chart.defaults.global.defaultFontColor = '#292b2c';
 // Pie Chart Example
 
 var ctxAll = document.getElementById("myPieChartAll");
-if(ctx != null){
-
-  var dataAll = $.get( "/data/getAll", function(_dataAll){
-    console.log(_dataAll.dataAll.financial);
+if(ctxAll != null){
+  console.log("hey");
+  var data = $.get( "/data/getAll", function(_data){
+  console.log(data);
     var myPieChart = new Chart(ctxAll, {
       type: 'pie',
       data: {

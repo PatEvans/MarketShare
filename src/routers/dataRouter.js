@@ -13,4 +13,3 @@ const dataRouter = () => {
 };
 
 module.exports = dataRouter;
-
