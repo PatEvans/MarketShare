@@ -4,14 +4,15 @@ function update(){
   var typeThird;
   var typeFourth;
   var typeFifth;
-  var backgroundColor;
-  var content;
-  var title
+  var backgroundColor = document.getElementById("colour1");;
+  var content = document.getElementById("action1");;
+  var title = document.getElementById("title1");
+  var photo =
 
   var updates = [typeFirst, typeSecond, typeThird, typeFourth, typeFifth];
   var i;
   for(i=0; i<5; i++){
-    case(updates[i]){
+    switch(updates[i]){
       case "profit":
         title = "Overall profit";
         background = "royalblue";
