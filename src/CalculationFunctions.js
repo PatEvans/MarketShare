@@ -22,22 +22,26 @@ const initialInvestment = (/*PortfolioID from database*/) =>
 };
 
 //Portfolio value function
-const portfolioValue = (/*userID.PortfolioID from database*/) =>
+const portfolioValueChanges = (/*userID.PortfolioID from database*/) =>
 {
-    var value = 0;
-    //for loop to be edited when database is incorporated
-    for(stock in portfolio)
+    var portfolioValues = [];
+    for(var i = 0; i < 30; i++)
     {
+         //for loop to be edited when database is incorporated
+        for(stock in portfolio)
+       {
         alphaVantageAPI.getDailyData(stock)
         .then(dailyData => 
         {
-            value += dailyData[0].Close * Qty; 
+            value += dailyData[i].Close * Qty; 
         })
         .catch(err => {
         console.error(err);
         });
+        }
+        portfolioValues[i] = value;
     }
-    return value;
+    return portfolioValues; 
 };
 
 //Function for calculating the profit that could be earned on a given date

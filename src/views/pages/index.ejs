@@ -128,10 +128,15 @@
 			  Mr MoneyBags
 			</div>
 		  </div>
+      <!-- Button to include new stock -->
+        <button class="button" onclick="rdr()">New Stock</button>
+        <button class="button" onclick="rdrInfo()">Edit info</button><br>
+
 <div class="row"style="">
           <!-- Icon Cards-->
 
 		  <div class="card mb-3 col-xl-3 col-sm-10 profilePane">
+
             <div class="card-header">
               <div class="proftext">About Me</div></div>
 
@@ -760,6 +765,16 @@
     <script src="js/demo/datatables-demo.js"></script>
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+
+    <!-- New stock button -->
+    <script>
+      function rdr(){
+        window.location.href = "./stock";
+      }
+      function rdrInfo(){
+        window.location.href = "./editInfo";
+      }
+    </script>
 
   </body>
 
