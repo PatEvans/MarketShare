@@ -12,7 +12,7 @@ const profileRouter = () => {
 
   router.post("/createAccount", profileController.createAccount);
 
-  router.use("/", profileController.index);
+  router.get("/", profileController.index);
 
   return router;
 };

@@ -1,7 +1,12 @@
 var userHelp = require('../util/user/userHelper');
 
-exports.index = function(req, res) {
-  res.render("pages/index");
+exports.index = async function(req, res) {
+  if(!req.cookies.id) {
+    res.render("pages/login");
+  } else {
+    const _user = await userHelp.getUser(req.cookies.id);
+    res.render("pages/index", {user: _user});
+  }
 };
 
 exports.editInfo = function(req, res) {
