@@ -14,6 +14,8 @@ const profileRouter = () => {
 
   router.get("/logout", profileController.logout);
 
+  router.get("/getAllIndustry", profileController.getAllIndustry);
+
   router.get("/", profileController.index);
 
   return router;

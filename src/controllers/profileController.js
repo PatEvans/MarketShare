@@ -40,3 +40,7 @@ exports.logout = function(req, res) {
 exports.register = function(req, res) {
   res.render("pages/register");
 }
+
+exports.getAllIndustry = async function(req, res) {
+  await getAllUsersIndustry();
+};
