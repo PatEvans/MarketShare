@@ -414,8 +414,7 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .button {
-    background-color: royalblue;
-    align:center;
+    background-color: lightblue;
     border: none;
     color: white;
     padding: 15px 25px;
