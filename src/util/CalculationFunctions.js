@@ -60,16 +60,10 @@ const portfolioValueChanges = (/*userID.PortfolioID from database*/) =>
       return portfolioValues;
 };
 
-const getPrice = (stockCode) =>
+const getPrice = async (stockCode) =>
 {
-    alphaVantageAPI.getDailyData(stockCode)
-        .then(dailyData => 
-        {
-            return dailyData[0].Close; 
-        })
-        .catch(err => {
-        console.error(err);
-        });
+    const dailyData = await alphaVantageAPI.getDailyData(stockCode);
+    return dailyData[0].Close;
 }
 //Function for calculating the profit that could be earned on a given date
 const profit = (/*userID.PortfolioID from database*/) =>
@@ -228,4 +222,4 @@ const dispStockMetric = (Stock) =>
 
 };
 
-module.exports = { initialInvestment, portfolioValue, profit, dispPortfolioPie, updateGraph, dispStockMetric };
+module.exports = { getPrice, initialInvestment, portfolioValueChanges, profit, dispPortfolioPie, updateGraph, dispStockMetric };

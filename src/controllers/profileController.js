@@ -13,6 +13,14 @@ exports.editInfo = function(req, res) {
   res.render("pages/editInfo");
 };
 
+exports.addInfo = async function(req, res) {
+  await userHelp.updateInfo(req.cookies.id, req.body.valueType, req.body.value);
+  if (req.body.returns) {
+    res.render("pages/editInfo");
+  }
+  res.redirect("/");
+};
+
 exports.login = async function(req, res) {
   if(!req.cookies.id) {
     const loggedin = await userHelp.login(req.body.username, req.body.password);

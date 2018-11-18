@@ -1,14 +1,17 @@
 module.exports = {
   name: "portfolio",
   columns: {
-    portfolioid: {
+    id: {
+      type: "int",
       primary: true,
+      generated: true
+    },
+    portfolioid: {
       type: "varchar",
       length: 255
     },
     orderid: {
-      type: "varchar",
-      length: 255
+      type: "int"
     }
   },
   relations: {

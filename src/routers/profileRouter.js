@@ -8,6 +8,8 @@ const profileRouter = () => {
   // Requests to /index
   router.get("/editInfo", profileController.editInfo);
 
+  router.post("/addInfo", profileController.addInfo)
+
   router.post("/login", profileController.login);
 
   router.get("/logout", profileController.logout);
