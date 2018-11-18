@@ -238,14 +238,14 @@
                   </tfoot>
 
                   <tbody>
-                  <% for(var i=0; i < orders[portfolio[user.portfolioid]].length; i++) { %>
+                  <% stocks.forEach(item => { %>
                     <tr>
-                      <td><%- orders[portfolio[user.portfolioid]][i].stockcode %></td>
-                      <td><%- orders[portfolio[user.portfolioid]][i].qty %></td>
-                      <td><%- orders[portfolio[user.portfolioid]][i].timeBought %></td>
-                      <td><%- orders[portfolio[user.portfolioid]][i].industry %></td>
+                      <td><%- item.stockcode %></td>
+                      <td><%- item.qty %></td>
+                      <td><%- item.timeBought %></td>
+                      <td><%- item.industry %></td>
                     </tr>
-                  <% } %>
+                  <% }) %>
 
                   </tbody>
                 </table>
