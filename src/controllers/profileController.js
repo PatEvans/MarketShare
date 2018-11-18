@@ -1,7 +1,12 @@
 var userHelp = require('../util/user/userHelper');
 
-exports.index = function(req, res) {
-  res.render("pages/index");
+exports.index = async function(req, res) {
+  if(!req.cookies.id) {
+    res.render("pages/login");
+  } else {
+    const _user = await userHelp.getUser(req.cookies.id);
+    res.render("pages/index", {user: _user});
+  }
 };
 
 exports.editInfo = function(req, res) {
@@ -11,9 +16,11 @@ exports.editInfo = function(req, res) {
 exports.login = async function(req, res) {
   if(!req.cookies.id) {
     const loggedin = await userHelp.login(req.body.username, req.body.password);
+    res.cookie('id', loggedin);
     res.send(loggedin?"Logged in!":"Something went wrong");
+  } else {
+    res.send("Already logged in!");
   }
-  res.send("Already logged in!");
 };
 
 exports.createAccount = async function(req, res) {
