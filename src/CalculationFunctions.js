@@ -25,6 +25,7 @@ const initialInvestment = (/*PortfolioID from database*/) =>
 const portfolioValueChanges = (/*userID.PortfolioID from database*/) =>
 {
     var portfolioValues = [];
+    var dates = [];
     for(var i = 0; i < 30; i++)
     {
          //for loop to be edited when database is incorporated
@@ -40,17 +41,51 @@ const portfolioValueChanges = (/*userID.PortfolioID from database*/) =>
         });
         }
         portfolioValues[i] = value;
+        dates[i] = dailyData[i].Timestamp;
     }
-    return portfolioValues; 
+    var portfolioValuesData = {
+        x: dates,
+        y: portfolioValues,
+        mode: 'lines+markers'
+      };
+      
+      var data = [portfolioValuesData];
+      
+      var layout = {
+        title: 'Line and Scatter Plot'
+      };
+      
+      Plotly.newPlot('myDiv', data, layout);
+
+      return portfolioValues;
 };
 
 //Function for calculating the profit that could be earned on a given date
 const profit = (/*userID.PortfolioID from database*/) =>
 {
-    value = portfolioValue();
+    values = portfolioValue();
     investment = initialInvestment();
+    profits = []; 
+    for(var i = 0; i < 30; i++)
+    {
+        profits[i] = (values[i] - investment) / investment * 100;
 
-    return (value - investment) / investment *100;
+    }
+    var profitValuesData = {
+        x: dates,
+        y: profits,
+        mode: 'lines+markers'
+      };
+      
+      var data = [profitValuesData];
+      
+      var layout = {
+        title: 'Line and Scatter Plot'
+      };
+      
+      Plotly.newPlot('myDiv', data, layout);
+
+    return profits;
 };
 
 //Function for calculating best performing stock compared to previous month
